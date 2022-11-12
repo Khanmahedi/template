@@ -4,7 +4,7 @@ int cmp(int *r, int a, int b, int l){return r[a] == r[b] && r[a+l] == r[b+l];}
 
 int sa[MAX],Rank[MAX],LCP[MAX];
 
-void buildSA(string s, int* sa, int n, int m){
+void buildSA(string s, int* sa, int n, int m){    
   int i,j,p,*x=wa,*y=wb,*t;
   for(i=0; i<m; i++) Ws[i] = 0;
   for(i=0; i<n; i++) Ws[x[i]=s[i]]++;
@@ -30,3 +30,5 @@ void buildLCP(string s, int *sa, int n){
          for(k?k--:0, j=sa[Rank[i]-1]; s[i+k]==s[j+k]; k++)
     return;
 } 
+
+//buildSA(s, sa, s.size()+1, 300)
