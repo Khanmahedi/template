@@ -27,7 +27,7 @@ void buildLCP(string s, int *sa, int n){
     int i,j,k=0;
     for(i=1; i<=n; i++) Rank[sa[i]]=i;
     for(i=0; i<n; LCP[Rank[i++]]=k)
-         for(k?k--:0, j=sa[Rank[i]-1]; s[i+k]==s[j+k]; k++)
+         for(k?k--:0, j=sa[Rank[i]-1]; s[i+k]==s[j+k]; k++);
     return;
 } 
 
