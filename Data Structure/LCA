@@ -1,0 +1,27 @@
+inline void BuildLca(ll n){
+    for( ll i = 1 ; i <= 20 ; i++){
+        for( ll j = 0 ; j <= n ; j++){
+            if(LCA[j][i-1] != -1){
+                LCA[j][i] = LCA[LCA[j][i - 1]][i - 1] ;
+            }
+        }
+    }
+}
+ll GetLca(ll a, ll b){
+    if(Level[a] < Level[b]) swap(a , b) ;
+    ll d = Level[a] - Level[b] ;
+    while(d > 0){
+        ll k = log2(d) ;
+        a = LCA[a][k] ;
+        d-=(1ll << k) ;
+    }
+    if(a == b) return a ;
+    
+    for( ll i = 20 ; i >= 0 ; i--){
+        if(LCA[a][i] != -1 and LCA[a][i] != LCA[b][i]){
+            a = LCA[a][i] ;
+            b = LCA[b][i] ;
+        }
+    }
+    return LCA[a][0] ; 
+}
